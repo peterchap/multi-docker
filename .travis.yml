@@ -21,3 +21,4 @@ after_success:
 - docker push pfc0807/multi-nginx
 - docker push pfc0807/multi-server
 - docker push pfc0807/multi-worker
+#completed
