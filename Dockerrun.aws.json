@@ -1,0 +1,35 @@
+{
+    "AWSEBDockerrunVersion":2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "pfc0807/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "pfc0807/multi-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "pfc0807/multi-worker",
+            "hostname": "worker",
+            "essential": false
+        },
+        {
+            "name": "nginx",
+            "image": "pfc0807/multi-nginx",
+            "essential": true,
+            "portmappings": [
+                {
+                "hostPort": 80,
+                "containerPort": 80
+                }
+            ],
+            "Links": ["client", "server"]
+        }
+    ]
+}
